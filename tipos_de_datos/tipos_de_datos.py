@@ -1,7 +1,5 @@
 import datetime
 
-from more_itertools import quantify
-
 # Numerico [int , float]
 print("Numeros")
 print(type(5))
