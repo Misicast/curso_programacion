@@ -26,3 +26,24 @@ class Failures:
         name: Literal["electrical", "mechanical", "network", "service", "other"],
     ) -> None:
         self.name = name
+
+class Email:
+    def __init__(self, by: str, to: str, subject: str,content: str, is_favorite: bool = False, is_urgent: bool = False, ) ->None:
+        self.by = by
+        self.to = to
+        self.susbject = subject
+        self.is_favorite = is_favorite
+        self.is_urgent = is_urgent
+        self.content = content
+
+class ProductCategory:
+    def __init__(
+            self,
+            name: Literal["perfume", "bisuteria", "carteras", "zapatos", "gorras"],
+            product_qty_sold: int,
+            total_amount_sold: float
+            ) -> None:
+        self.name = name
+        self.product_qty_sold = product_qty_sold
+        self.total_amount_sold = total_amount_sold
+        

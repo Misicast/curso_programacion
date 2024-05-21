@@ -62,12 +62,12 @@ class TareaForthTask(TestCase):
     ]
 
     def test_must_order_by_qty_sold(self):
-        obtained = tarea.must_sold_products(self._products)
+        obtained = tarea.most_sold_products(self._products)
         for key, biggest_price in enumerate([16, 16, 16, 15, 15]):
             self.assertEqual(obtained[key], biggest_price)
 
     def test_must_len_be_5(self):
-        obtained = tarea.must_sold_products(self._products)
+        obtained = tarea.most_sold_products(self._products)
         self.assertEqual(5, len(obtained))
 
 
@@ -94,10 +94,10 @@ class TareaFifthTask(TestCase):
     ]
 
     def test_must_order_by_repetition(self):
-        obtained = tarea.must_repited_failures(self._failures)
+        obtained = tarea.most_repited_failures(self._failures)
         for key, qty_failures in enumerate([6, 5, 3]):
             self.assertEqual(obtained[key], qty_failures)
 
     def test_must_len_be_3(self):
-        obtained = tarea.must_repited_failures(self._failures)
+        obtained = tarea.most_repited_failures(self._failures)
         self.assertEqual(3, len(obtained))
