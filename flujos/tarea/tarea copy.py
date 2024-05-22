@@ -66,7 +66,14 @@ def must_repited_failures(failures: List[typings.Failures]) -> List[typings.Fail
    return must_repited_failures
 
 
+# Parte II
+
+def maximun(numbers: List[float]) -> float:
+    return max(numbers)
+
+def count_words(words: List[str]) -> dict[str, int]:
+   conteo={}
 
 
 
-
+    

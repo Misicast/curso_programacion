@@ -4,21 +4,65 @@ import flujos.tarea.types as typings
 
 
 def velocidad(punto_a: typings.Punto, punto_b: typings.Punto, tiempo: float, at) -> float:
-    raise NotImplemented()
+    return (punto_b.x-punto_a.x)/tiempo
 
 def mapper(data: dict) -> typings.DatosDeDiccionario:
-    raise NotImplemented()
+    return typings.DatosDeDiccionario(name=data["name"],lastname=data["lastname"],age=data["age"])
 
 def total_to_pay(products: List[typings.Product]) -> float:
-    raise NotImplemented()
+    precios=[]
+    for product in products:
+        precios.append(product.price)
+        return sum(precios)*1,16
+    
 
 
 def most_sold_products(products: List[typings.Product]) -> List[typings.Product]:
-    raise NotImplemented()
+    def sortqtysold(products:typings.Product):
+        return products.qty_sold
+    products.sort(key=sortqtysold)
+    products.reverse()
+    mostsoldproduct=[]
+    for index in range (0,5)
+    mostsoldproduct.append(products[index])
+    return mostsoldproduct
 
 
 def most_repited_failures(failures: List[typings.Failures]) -> List[typings.Failures]:
-    raise NotImplemented()
+    electrical=[]
+    mechanical=[]
+    network=[]
+    service=[]
+    other=[]
+    for failure in failures:
+        if failure.name=="electrical":
+            electrical.append(failure)
+        if failure.name=="mechanical":
+            mechanical.append(failure)
+        if failure.name=="network":
+            network.append(failure)
+        if failure.name=="service":
+            service.append(failure)  
+        if failure.name=="other":
+            other.append(failure) 
+
+    fallas=[
+        {"failures" :typings.Failures(name="electrical"),"qty":len(electrical)}
+        {"failures" :typings.Failures(name="mechanical"),"qty":len(mechanical)}
+        {"failures" :typings.Failures(name="network"),"qty":len(network)}
+        {"failures" :typings.Failures(name="service"),"qty":len(service)}
+        {"failures" :typings.Failures(name="other"),"qty":len(other)}
+    ]
+    def sortqtysold(products:typings.Product):
+        return fallas ["qty"]
+    fallas.sort(key=sortqtysold)
+    fallas.reverse()
+    mostrepitedfailures=[]
+    for index in range (0,3):
+        mostrepitedfailures.append(fallas[index]["failure"])
+        return mostrepitedfailures
+    
+
 
 # Parte II
 
