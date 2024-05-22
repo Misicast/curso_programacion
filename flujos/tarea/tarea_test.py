@@ -1,7 +1,7 @@
 from unittest import TestCase
 
 import flujos.tarea.tarea as tarea
-from flujos.tarea.types import DatosDeDiccionario, Failures, Product, Punto
+from flujos.tarea.types import Failures, Product, Punto
 
 
 class TareaFirstTask(TestCase):
@@ -11,11 +11,11 @@ class TareaFirstTask(TestCase):
 
     def test_velocidad_must_return_0(self):
         velocidad = tarea.velocidad(punto_a=Punto(50), punto_b=Punto(50), tiempo=1)
-        self.assertEqual(velocidad, 50)
+        self.assertEqual(velocidad, 0)
 
     def test_velocidad_must_return_n_50(self):
         velocidad = tarea.velocidad(punto_a=Punto(50), punto_b=Punto(0), tiempo=1)
-        self.assertEqual(velocidad, 50)
+        self.assertEqual(velocidad, -50)
 
 
 class TareaSecondTask(TestCase):
@@ -64,7 +64,7 @@ class TareaForthTask(TestCase):
     def test_must_order_by_qty_sold(self):
         obtained = tarea.most_sold_products(self._products)
         for key, biggest_price in enumerate([16, 16, 16, 15, 15]):
-            self.assertEqual(obtained[key], biggest_price)
+            self.assertEqual(obtained[key].qty_sold, biggest_price)
 
     def test_must_len_be_5(self):
         obtained = tarea.most_sold_products(self._products)
@@ -95,8 +95,8 @@ class TareaFifthTask(TestCase):
 
     def test_must_order_by_repetition(self):
         obtained = tarea.most_repited_failures(self._failures)
-        for key, qty_failures in enumerate([6, 5, 3]):
-            self.assertEqual(obtained[key], qty_failures)
+        for key, qty_failures in enumerate(["network", "electrical", "mechanical"]):
+            self.assertEqual(obtained[key].name, qty_failures)
 
     def test_must_len_be_3(self):
         obtained = tarea.most_repited_failures(self._failures)
