@@ -80,5 +80,5 @@ class LanguageDictionary:
 
 
 class SystemLanguage:
-    en_es = LanguageDictionary()
-    es_en = LanguageDictionary()
+    EN_ES = LanguageDictionary()
+    ES_EN = LanguageDictionary()
