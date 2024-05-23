@@ -1,7 +1,14 @@
 from unittest import TestCase
 
 import flujos.tarea.tarea as tarea
-from flujos.tarea.types import Email, Failures, Product, ProductCategory, Punto
+from flujos.tarea.types import (
+    Email,
+    Failures,
+    LanguageDictionary,
+    Product,
+    ProductCategory,
+    Punto,
+)
 
 
 class Part1Case1(TestCase):
@@ -274,20 +281,124 @@ class Part2Case6(TestCase):
 
 
 class Part3Case1(TestCase):
-    pass
+    names = [
+        "Beatriz Golindano",
+        "Mirna Silva",
+        "Cruz Ortiz",
+        "Gabriel Ortiz Golindano",
+    ]
+
+    def test_must_return_two_char_str_for_each_name(self):
+        obtained = tarea.get_avatar_initials(Part3Case1.names)
+        for name in obtained:
+            self.assertEqual(len(name), 2)
+
+    def test_must_match_each_name_with_its_avatar_initials(self):
+        expected = ["BG", "MS", "CO", "GO"]
+        obtained = tarea.get_avatar_initials(Part3Case1.names)
+        for key, value in enumerate(expected):
+            self.assertEqual(obtained[key], value)
 
 
 class Part3Case2(TestCase):
-    pass
+    urls_template = [
+        "www.youtube.com/{id}/details",
+        "www.google.com/{id}/details",
+        "www.facebook.com/{id}/details",
+        "www.twitter.com/{id}/details",
+        "www.instagram.com/{id}/details",
+    ]
+
+    def test_must_return_id_45(self):
+        expected = "45"
+        urls = (url.replace("{id}", expected) for url in Part3Case2.urls_template)
+        for url in urls:
+            obtained = tarea.get_id_from_url(url)
+            self.assertEqual(expected, obtained)
+
+    def test_must_return_id_SOmeText(self):
+        expected = "SOmeText"
+        urls = (url.replace("{id}", expected) for url in Part3Case2.urls_template)
+        for url in urls:
+            obtained = tarea.get_id_from_url(url)
+            self.assertEqual(expected, obtained)
 
 
 class Part3Case3(TestCase):
-    pass
+    products = [
+        Product(name="A", price=20.2, qty_sold=2),
+        Product(name="B", price=30.3, qty_sold=3),
+        Product(name="C", price=40.4, qty_sold=4),
+        Product(name="AL", price=40.4, qty_sold=4),
+    ]
+
+    def test_must_return_only_one_element_when_search_is_B(self):
+        expected = 1
+        obtained = tarea.search_products(Part3Case3.products, "B")
+        self.assertEqual(expected, len(obtained))
+
+    def test_must_return_only_one_element_when_search_is_C(self):
+        expected = 1
+        obtained = tarea.search_products(Part3Case3.products, "B")
+        self.assertEqual(expected, len(obtained))
+
+    def test_must_return_2_element_when_search_is_A(self):
+        expected = 2
+        obtained = tarea.search_products(Part3Case3.products, "A")
+        self.assertEqual(expected, len(obtained))
+
+    def test_must_product_name_with_search_when_is_AL(self):
+        expected = "AL"
+        obtained = tarea.search_products(Part3Case3.products, expected)
+        self.assertEqual(expected, obtained[0].name)
+
+    def test_must_product_name_with_search_when_is_B(self):
+        expected = "B"
+        obtained = tarea.search_products(Part3Case3.products, expected)
+        self.assertEqual(expected, obtained[0].name)
+
+    def test_must_product_name_with_search_when_is_C(self):
+        expected = "C"
+        obtained = tarea.search_products(Part3Case3.products, expected)
+        self.assertEqual(expected, obtained[0].name)
 
 
 class Part3Case4(TestCase):
-    pass
+    lang = LanguageDictionary()
+
+    def setUp(self) -> None:
+        Part3Case4.lang.add("hello", "hola").add("world", "mundo")
+        return super().setUp()
+
+    def test_must_return_lang_hola_for_hello(self):
+        expected = Part3Case4.lang["hello"]
+        obtained = tarea.translate(Part3Case4.lang, "hello", "Hola")
+        self.assertEqual(expected, obtained)
+
+    def test_must_return_lang_mundo_for_world(self):
+        expected = Part3Case4.lang["world"]
+        obtained = tarea.translate(Part3Case4.lang, "world", "Mundo")
+        self.assertEqual(expected, obtained)
+
+    def test_must_add_word_to_dictionary_and_return_default_value(self):
+        expected = "defecto"
+        obtained = tarea.translate(Part3Case4.lang, "default", expected)
+        self.assertEqual(expected, obtained)
+        self.assertEqual(Part3Case4.lang["default"], expected)
 
 
 class Part3Case5(TestCase):
-    pass
+    def test_should_return_only_fizz(self):
+        for test in range(2, 44, 6):
+            obtained = tarea.fizz_buzz(test)
+            self.assertEqual("fizz", obtained)
+
+    def test_should_return_only_buzz(self):
+        for test in range(5, 55, 10):
+            obtained = tarea.fizz_buzz(test)
+            self.assertEqual("buzz", obtained)
+
+    def test_should_return_only_fizzbuzz(self):
+        for test in range(10, 100, 10):
+            obtained = tarea.fizz_buzz(test)
+            self.assertEqual("fizzbuzz", obtained)
