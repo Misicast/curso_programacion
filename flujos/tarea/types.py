@@ -69,7 +69,7 @@ class LanguageDictionary:
         self.__language__[word] = translation
         return self
 
-    def __getattribute__(self, name: str) -> str:
+    def __getitem__(self, name: str) -> str:
         return self.__language__[name]
 
     def __len__(self) -> int:

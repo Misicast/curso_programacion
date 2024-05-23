@@ -12,12 +12,12 @@
 
 ## Parte II
 
-1. <input type="checkbox" /> Se requiere una funcion que identifique el maximo de una lista de numeros
+1. <input type="checkbox" checked/> Se requiere una funcion que identifique el maximo de una lista de numeros
 2. <input type="checkbox" /> Se requiere una funcion que transforme una lista de palabras en un dicionario, en donde, la clave represente la palabra y el valor, la cantidad de veces que se repite
-3. <input type="checkbox" /> Se tiene una lista de emails, se requiere una funcion que devuelva una lista de emails favoritos.
-4. <input type="checkbox" /> Una tienda de perfumes y accesorios para dama y caballeros, quiere mejorar la experiencia de sus clientes es su plataforma. Para ello, han decidido crearle al usuario un tablero resumen de su consumo, por ahora la funcionalidad que necesitan es mostrarle al usuario una lista de categorías acorde con su consumo. Ej. si un cliente consume perfume:4, bisutería:10, ropa:1, el usuario debe ver las categorías bisutería, perfume, ropa. Debido a la complejidad de la funcionalidad, han decido contratarte tiempo completo para realizar esta tarea
-5. <input type="checkbox" /> La misma tienda antes mencionada, ha solicitado una nueva funcionalidad para este mismo tablero, en donde se liste de forma ordenada las categorías de los productos pero ahora por monto consumido. Nuevamente te han solicitado a ti, ya que le has dado grandes resultados.
-6. <input type="checkbox" /> Una vez mas, la tienda quiere agregar una funcionalidad especial en el tablero y es que desean los mismos datos de las tareas anteriores, ahora expresadas de forma relativa al consumo total del cliente. Ej. si el usuario consume mas perfumes, el resultado de la funcionalidad le debe indicar en que medida porcentual consume con respecto al total por ejemplo 60%.
+3. <input type="checkbox" checked /> Se tiene una lista de emails, se requiere una funcion que devuelva una lista de emails favoritos.
+4. <input type="checkbox" checked /> Una tienda de perfumes y accesorios para dama y caballeros, quiere mejorar la experiencia de sus clientes es su plataforma. Para ello, han decidido crearle al usuario un tablero resumen de su consumo, por ahora la funcionalidad que necesitan es mostrarle al usuario una lista de categorías acorde con su consumo. Ej. si un cliente consume perfume:4, bisutería:10, ropa:1, el usuario debe ver las categorías bisutería, perfume, ropa. Debido a la complejidad de la funcionalidad, han decido contratarte tiempo completo para realizar esta tarea
+5. <input type="checkbox" checked /> La misma tienda antes mencionada, ha solicitado una nueva funcionalidad para este mismo tablero, en donde se liste de forma ordenada las categorías de los productos pero ahora por monto consumido. Nuevamente te han solicitado a ti, ya que le has dado grandes resultados.
+6. <input type="checkbox" checked/> Una vez mas, la tienda quiere agregar una funcionalidad especial en el tablero y es que desean los mismos datos de las tareas anteriores, ahora expresadas de forma relativa al consumo total del cliente. Ej. si el usuario consume mas perfumes, el resultado de la funcionalidad le debe indicar en que medida porcentual consume con respecto al total por ejemplo 60%.
 
 ## Part III
 
