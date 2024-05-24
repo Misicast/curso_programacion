@@ -80,9 +80,12 @@ def maximun(numbers: List[float]) -> float:
 
 def count_words(words: List[str]) -> dict[str, int]:
     conteo = {}
+    words_in_lower = []
+    for word in words:
+        words_in_lower.append(word.lower())
     for word in words:
         if not word.lower() in conteo:
-            conteo[word.lower()] = words.lower().count(word.lower())
+            conteo[word.lower()] = words_in_lower.count(word.lower())
     return conteo
 
 
@@ -140,35 +143,30 @@ def most_consumed_categories_percent(
 
 
 def get_avatar_initials(names: List[str]) -> List[str]:
-    initials=[]
+    initials = []
     for full_name in names:
         full_name_splited = full_name.split(" ")
         first_name = full_name_splited[0]
-        last_name=full_name_splited[1]
-        initialfn=first_name[0]
-        initialln=last_name[0]
-        initials.append(initialfn.join(initialln))
+        last_name = full_name_splited[1]
+        initialfn = first_name[0]
+        initialln = last_name[0]
+        initials.append(initialfn + initialln)
     return initials
-    
-    
 
 
 def get_id_from_url(url: str) -> str:
-    id=url.split("/")[1]
+    id = url.split("/")[1]
     return id
-      
 
 
 def search_products(
     products: List[typings.Product], search: str
 ) -> List[typings.Product]:
-    searchproduct=[]
+    searchproduct = []
     for product in products:
-       if search.lower() in product.name.lower():
+        if search.lower() in product.name.lower():
             searchproduct.append(product)
     return searchproduct
-
-
 
 
 def translate(
@@ -177,30 +175,16 @@ def translate(
     if word in lang:
         return lang[word]
     else:
-        lang.add(word,default_translation)
+        lang.add(word, default_translation)
         return default_translation
-    
-    
-    
-
-
-
-
-
 
 
 def fizz_buzz(num: int) -> str:
-    if num % 2==0 and num % 5==0:
+    if num % 2 == 0 and num % 5 == 0:
         return "fizz-buzz"
-    if num % 2==0:
+    if num % 2 == 0:
         return "fizz"
-    if num % 5==0:
+    if num % 5 == 0:
         return "buzz"
     else:
         return "game over"
-    
-
-    
-
-    
-

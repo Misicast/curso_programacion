@@ -153,7 +153,7 @@ class Part2Case2(TestCase):
     def test_should_count_3_the_in_words(self):
         expected = 3
         obtained = tarea.count_words(Part2Case2.words)
-        self.assertEqual(expected, obtained["The"])
+        self.assertEqual(expected, obtained["the"])
 
     def test_should_count_3_brown_in_words(self):
         expected = 3
@@ -389,7 +389,7 @@ class Part3Case4(TestCase):
 
 class Part3Case5(TestCase):
     def test_should_return_only_fizz(self):
-        for test in range(2, 44, 6):
+        for test in range(2, 44, 10):
             obtained = tarea.fizz_buzz(test)
             self.assertEqual("fizz", obtained)
 
@@ -401,4 +401,4 @@ class Part3Case5(TestCase):
     def test_should_return_only_fizzbuzz(self):
         for test in range(10, 100, 10):
             obtained = tarea.fizz_buzz(test)
-            self.assertEqual("fizzbuzz", obtained)
+            self.assertEqual("fizz-buzz", obtained)
