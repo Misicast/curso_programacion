@@ -106,7 +106,7 @@ edad:input("Cual es tu edad?:")
 if edad < 18:
     print("eres menor de edad")
 else:
-print("eres mayor de edad")
+    print("eres mayor de edad")
 
 #EJERCICIO 2 Escribir un programa que almacene la cadena de caracteres contraseña en una variable, pregunte al usuario por la contraseña e imprima por pantalla si la contraseña introducida por el usuario coincide con la guardada en la variable sin tener en cuenta mayúsculas y minúsculas
 
@@ -120,7 +120,7 @@ else:
 
 #EJERCICIO 3 Escribir un programa que pida al usuario un número entero y muestre por pantalla si es par o impar
 num=int(input("introduce numero entero"))
-if num/2 == 0
+if num/2 == 0:
     print("el nmr" + str(num) + "es par")
 else:
     print("el nmr" + str(num) + "es impar")
