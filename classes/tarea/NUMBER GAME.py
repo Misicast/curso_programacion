@@ -173,7 +173,7 @@ class NumberGame:
             
 
     def move_range_and_ask_again(self, random_number):
-        self.tries += 1 
+        self.tries += 1
         user_answer_is_lower = input("El valor que piensas es menor ? (yes/no)")
         if user_answer_is_lower.lower() == "yes":
             self.end_number = random_number
@@ -196,8 +196,6 @@ class NumberGame:
 NumberGame(start_number=0, end_number=100, max_tries=5).play()
 
 
-
-    
 
 
 
