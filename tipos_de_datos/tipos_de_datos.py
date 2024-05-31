@@ -82,6 +82,7 @@ print(texto.center(50))
 print(texto.endswith("iera"))
 print(texto.startswith("iera"))
 print(texto.find("g"))
+print(f"Texto con valor {f} y otro valor {a}")
 # List(ordenada)
 print("Lista")
 lista = [1, 2, 4, 3, 3]

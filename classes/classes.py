@@ -115,3 +115,24 @@ print("Vector AB, magnitud: " + str(vector_a_b.magnitud()))
 print("Vector AB, direccion: " + str(vector_a_b.direccion()))
 velocidad_a_b = Velocidad(vector=vector_a_b, time=2)
 print("Velocidad es de: " + str(velocidad_a_b.calcular()))
+
+
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def __str__(self):
+        return f"{self.name}(age={self.age})"
+
+    def __len__(self):
+        return self.age
+
+    def __add__(self, obj):
+        if type(obj) is Person:
+            return self.age + obj.age
+        return self.age
+
+
+def personToStr(person):
+    return f"{person.name}(age={person.age})"
