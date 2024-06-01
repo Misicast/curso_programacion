@@ -1,0 +1,95 @@
+# Herencia 
+class Envios:
+    def enviar (self,productos:str):
+        raise NotImplementedError("implement")
+class Roadlogistic (Envios):
+    def enviar(self, productos: str):
+        self.productos=productos
+        print("Se envio via terrestre")
+class Sealogistic (Envios):
+    def enviar(self, productos: str):
+        print("Se envio via maritima")
+
+# Factory method 
+class Document: # Producto
+    def __init__(self, content: str, ext: str) -> None:
+        self.content = content
+        self.ext = ext
+class FileProducer: # Factory -> Producto
+    def writeFile(self) -> Document:
+        raise NotImplementedError()
+    
+class DocWriter(FileProducer):
+    def __init__(self, content: str) -> None:
+        FileProducer.__init__(self)
+        self.content = content
+    
+    def writeFile(self) -> Document:
+        return Document(content=self.content, ext=".doc")
+    
+class XLSWriter(FileProducer):
+    def __init__(self, content: str) -> None:
+        FileProducer.__init__(self)
+        self.content = content
+    def writeFile(self) -> Document:
+        return Document(content=self.content, ext=".xls")
+
+win10Doc = DocWriter(content="Document doc").writeFile()
+win10xls = XLSWriter(content="Document xls").writeFile()
+
+# Abstract factory 
+
+class Cereal: # Abstracta
+    def __init__(self, weidth: float) -> None:
+        self.weidth = weidth
+
+class Flip(Cereal):
+    def __init__(self, weidth:float) -> None:
+        Cereal.__init__(self, weidth=weidth)
+class Oreo(Cereal):
+    def __init__(self, weidth:float) -> None:
+        Cereal.__init__(self, weidth=weidth)
+class Kelogs(Cereal):
+    def __init__(self, weidth:float) -> None:
+        Cereal.__init__(self, weidth=weidth)
+
+class CerealFactory:
+    def produce80gr(self) -> Cereal:
+        raise NotImplementedError()
+    def produce125gr(self) -> Cereal:
+        raise NotImplementedError()
+    def produce250gr(self)-> Cereal:
+        raise NotImplementedError()
+    
+class FlipFactory(CerealFactory):
+    def produce80gr(self) -> Cereal:
+        return Flip(weidth=80)
+    def produce125gr(self) -> Cereal:
+        return Flip(weidth=125)
+    def produce250gr(self) -> Cereal:
+        return Flip(weidth=250)
+    
+class OreoFactory(CerealFactory):
+    def produce80gr(self) -> Cereal:
+        return Oreo(weidth=80)
+    def produce125gr(self) -> Cereal:
+        return Oreo(weidth=125)
+    def produce250gr(self) -> Cereal:
+        return Oreo(weidth=250)   
+    
+class KelogsFactory(CerealFactory):
+    def produce80gr(self) -> Cereal:
+        return Kelogs(weidth=80)
+    def produce125gr(self) -> Cereal:
+        return Kelogs(weidth=125)
+    def produce250gr(self) -> Cereal:
+        return Kelogs(weidth=250)
+
+
+
+    
+
+    
+        
+
+       
