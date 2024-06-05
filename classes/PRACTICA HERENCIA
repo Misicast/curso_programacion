@@ -85,9 +85,71 @@ class KelogsFactory(CerealFactory):
     def produce250gr(self) -> Cereal:
         return Kelogs(weidth=250)
 
+# Builder 
+class Casa:
+    def __init__(self, num_wall:int, num_windows:int = 4, shape_roof: str = "triangular", num_doors:int = 6, has_ac: bool = True):
+        self.num_wall = num_wall
+        self.num_windows = num_windows
+        self.shape_roof = shape_roof
+        self.num_doors = num_doors
+        self.has_ac = has_ac
 
+# El problema, 1. constructor muy largo,2. no es explicito en las caracteristicas que se definen,3. no hay manejo de valores por defecto.
+mi_casa = Casa(4,5,"triangular", 6, True)
+
+# Solucion
+class CasaBuilder:
+    def __init__(self) -> None:
+        self.casa = Casa(4,3,"square",4,False)
+    def num_walls(self, num: int)->"CasaBuilder":
+        self.casa.num_wall = num
+        return self
+    def num_windows(self, num: int) ->"CasaBuilder":
+        self.casa.num_windows = num
+        return self
+    def shape_roof(self, shape: str) -> "CasaBuilder":
+        self.casa.shape_roof = shape
+        return self
+    def num_doors(self, num: int) -> "CasaBuilder":
+        self.casa.num_doors = num
+        return self
+    def has_ac(self, has_ac: bool) -> "CasaBuilder":
+        self.casa.has_ac = has_ac
+        return self
+    def build(self) -> Casa:
+        return self.casa
+    
+mirnita_casa = CasaBuilder().num_walls(8).num_windows(6).has_ac(True).build() # Java, Go, C, C++, C#, Typescript
+
+# Python way
+
+bea_casa = Casa(num_wall=8, num_windows=5, num_doors=6) # Python, Kotlin, Dart
+cruz_casa= Casa(num_wall=8, num_windows=5, num_doors=6)
+
+class Enemigo:
+    def __init__(self, name , vida, fuerza):
+        self.name=name
+        self.vida=vida
+        self.fuerza=fuerza
+    def __str__(self):
+        return f"{self.name},vida:{self.vida},fuerza:{self.fuerza}"
+    
+    def copy(self):
+        return Enemigo(name=self.name, vida=self.vida, fuerza=self.fuerza)
+    
+soldier_lower = Enemigo(name="soldier", vida=100, fuerza=35)
+for num in range(0,10000):
+    soldier_legion = soldier_lower.copy()
+    soldier_legion.name += str(num)
+    print(soldier_legion)
 
     
+
+
+
+
+
+
 
     
         
