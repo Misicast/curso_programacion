@@ -1,3 +1,4 @@
 .env
 .vscode
 **/*.bkp
+__pycache__
