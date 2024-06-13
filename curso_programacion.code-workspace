@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "store_cli"
+		}
+	],
+	"settings": {
+		"workbench.colorTheme": "GitHub Light",
+		"workbench.colorCustomizations": {
+			"[GitHub Light]": {
+				"titleBar.activeBackground": "#da72d1",
+				"tab.activeBackground": "#ff00ea22"
+			}
+		},
+		"window.zoomLevel": 2
+	}
+}

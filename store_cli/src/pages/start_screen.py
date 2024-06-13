@@ -1,3 +1,4 @@
+from pathlib import Path
 from typing import Callable
 
 from pages.screen import Screen
@@ -15,7 +16,7 @@ class StartScreen(Screen):
         self.on_key_pressed()
 
     def branding(self) -> str:
-        return """MISICAST
+        return f"""{self.get_banner()}
 
     Bienvenidos a nuestra tienda virtual local. Te ofrecemos productos
     para damas y caballeros, perfumes y carteras. Puedes realizar tus
@@ -23,3 +24,13 @@ class StartScreen(Screen):
     nivel nacional. Siguenos en @misicast_.
 
     Tel: +584141234567"""
+
+    def get_banner(self) -> str:
+        file = open(
+            Path(__file__).parent.parent.joinpath("assets").joinpath("banner.txt"),
+            "r",
+            encoding="utf8",
+        )
+        text = file.read()
+        file.close()
+        return text
